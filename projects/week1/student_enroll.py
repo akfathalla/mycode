@@ -19,20 +19,26 @@ core_electives = {'MATH 2318':['Linear Algebra', 3],
 cs_electives = {'COSC 2305':['Computing Structures', 3], 'MATH 2305':['Discrete Mathematics', 3]}
 sde_electives = {'COSC 4351':['Fundamentals of Software Engineering', 4], 'COSC 4353':['Software Design', 3]}
 
+
+# This function will be used to print out classes and allow a student to enroll in classes for the semester
+
 def enroll_classes(class_level):
-    enrolled_classes = {}
+    enrolled_classes = {} # An empty dictionary to add classes to
     j = 1
     for key, values in class_level.items():
       print("\n", j , ":", key, "   ", end='')
       for i in values:
        print(i, end='')
       j += 1
-    class_option = input("\nPlease select class from the menu: 1")
+    class_option = input("\nPlease select class from the menu: ")
     enrolled_classes.update(class_level)
     print(enrolled_classes)
     return None
 
-def enroll():
+
+# This function will help the student move throughout the menu
+
+def class_menu():
   print("====== Class Levels =======\n1: Core Classes\n2: Computer Science Classes (CS)\n3: Electives\n")
   level = input("Please type class level : ")
   if level == '1':
@@ -55,11 +61,14 @@ def enroll():
    print("Incorrect option, please try again!"), enroll()
 
   return None  
+
+# The main function brings up the main menu and calls other functions accordingly.
+
 def main():
-  print("\n########## MAIN Menu ###########\n1:) Enroll in classes\n 2:) Update grades \n3: Check GPA")
+  print("\n########## MAIN Menu ###########\n1: Enroll in classes\n2: Update grades \n3: Check GPA")
   action = input("\nPlease enter your main option: ")
   if action == '1':
-   enroll()
+   class_menu()
   elif action == '2':
     update_grades()
   elif action == '3':
@@ -69,6 +78,4 @@ def main():
 
 if __name__ == '__main__':
  main()
-
-# Enrollment function
 
