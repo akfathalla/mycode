@@ -1,0 +1,21 @@
+---
+- name: CAP Week2 Ansible Project
+  hosts: planetabc
+  connection: ssh
+  gather_facts: true
+
+  tasks:
+    - name: Install steam lokomotive on all machines
+      ansible.builtin.apt:
+        name: sl
+        state: present
+      become: yes
+      
+    - name: Gather some facts on our friends in planet-ABC
+      ansible.builtin.debug:
+       var: ansible_facts.keys()
+
+    - name: Let's copy some files to planetabc machines.
+      ansible.builtin.copy:
+        src: ~/filestocopy/
+        dest: ~/ 
