@@ -1,7 +1,22 @@
+# netns_file.yml
 ---
+# Network Namespaces list
 netns_list:
     - core_router
     - firewall
     - abdul_host
     - camilo_host
+# Commands list
+ovs_commands:
+    - sudo ovs-vsctl add-br
+    
 
+devices_list:
+    ovs_devices:
+        - agg_br
+            int_list:
+                - finEth
+        - finn_br
+        - adm_br
+        - ops_br
+    
