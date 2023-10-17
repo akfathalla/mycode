@@ -1,0 +1,7 @@
+---
+netns_list:
+    - core_router
+    - firewall
+    - abdul_host
+    - camilo_host
+

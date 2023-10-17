@@ -1,0 +1,13 @@
+---
+- name: Capstone network automation project playbook.
+  hosts: localhost
+  
+  vars_files:
+    - netns_file.yml
+  tasks:
+  - name: Deploying Network Namespaces.
+    community.general.ip_netns:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ netns_list }}"
+    become: yes
